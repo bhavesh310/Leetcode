@@ -7,11 +7,12 @@ public:
         return ans;
         //Sort array
         sort(nums.begin(),nums.end());
-
+        //Present index and value
         int current=nums[0];
         int idx=0;
         //Main Loop
         while(current<=nums.back()){
+            //Check whether values lie within range or not
             if(idx<nums.size() && nums[idx]==current)
             idx++;
             else 
