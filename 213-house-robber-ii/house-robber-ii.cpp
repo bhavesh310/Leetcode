@@ -7,7 +7,8 @@ public:
 
         dp[0]=nums[st];
         dp[1]=max(nums[st],nums[st+1]);
-
+        //i-->Nums array track
+        //j-->dp array track
         for(int i=st+2,j=2;i<=end;i++,j++)
         dp[j]=max(dp[j-1],dp[j-2]+nums[i]);
 
@@ -16,12 +17,13 @@ public:
 
     int rob(vector<int>& nums) {
         int s=nums.size();
+        //Base cases
         if(s==1)
         return nums[0];
 
         if(s==2)
         return max(nums[0],nums[1]);
-        
+        //Helper function
         return max(helper(nums,0,s-2),helper(nums,1,s-1));
     }
 };
