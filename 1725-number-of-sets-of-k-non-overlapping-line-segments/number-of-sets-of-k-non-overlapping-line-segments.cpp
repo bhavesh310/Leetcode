@@ -12,7 +12,6 @@ public:
                 dp[j] = (dp[j] + dp[j - 1]) % MOD;
             }
         }
-
         return dp[2 * k];
     }
 };
