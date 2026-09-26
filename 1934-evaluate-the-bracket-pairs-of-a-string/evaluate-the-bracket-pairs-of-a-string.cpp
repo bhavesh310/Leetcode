@@ -2,36 +2,35 @@ class Solution {
 public:
     string evaluate(string s, vector<vector<string>>& knowledge) {
         unordered_map<string, string> mp;
-        
-        // Store key-value pairs
-        for (auto& k : knowledge) {
-            mp[k[0]] = k[1];
+
+        for (auto &p : knowledge) {
+            mp[p[0]] = p[1];
         }
-        
+
         string ans;
-        
-        for (int i = 0; i < s.size(); i++) {
+
+        for (int i = 0; i < s.size(); ) {
             if (s[i] == '(') {
                 int j = i + 1;
-                
-                while (s[j] != ')') {
+
+                while (s[j] != ')')
                     j++;
-                }
-                
+
                 string key = s.substr(i + 1, j - i - 1);
-                
+
                 if (mp.count(key))
                     ans += mp[key];
                 else
                     ans += "?";
-                
-                i = j;  // Skip processed bracket pair
+
+                i = j + 1;
             } 
             else {
                 ans += s[i];
+                i++;
             }
         }
-        
+
         return ans;
     }
 };
