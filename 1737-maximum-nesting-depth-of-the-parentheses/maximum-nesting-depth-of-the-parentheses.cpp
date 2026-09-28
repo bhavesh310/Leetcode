@@ -13,7 +13,6 @@ public:
                 depth--;
             }
         }
-
         return ans;
     }
 };
