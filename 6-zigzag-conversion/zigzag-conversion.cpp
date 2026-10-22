@@ -1,3 +1,4 @@
+
 class Solution {
 public:
     string convert(string s, int numRows) {
@@ -5,25 +6,22 @@ public:
             return s;
 
         vector<string> rows(numRows);
+        int currRow = 0;
+        int direction = -1;
 
-        int row = 0;
-        int direction = 1;
+        for (char c : s) {
+            rows[currRow] += c;
 
-        for (char ch : s) {
-            rows[row] += ch;
+            if (currRow == 0 || currRow == numRows - 1)
+                direction *= -1;
 
-            if (row == 0)
-                direction = 1;
-            else if (row == numRows - 1)
-                direction = -1;
-
-            row += direction;
+            currRow += direction;
         }
 
         string ans;
-
-        for (string& r : rows)
-            ans += r;
+        for (string &row : rows) {
+            ans += row;
+        }
 
         return ans;
     }
