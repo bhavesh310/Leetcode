@@ -9,7 +9,6 @@ public:
                 ans++;
             }
         }
-
         return ans;
     }
 };
